@@ -24,9 +24,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const animalAPIs = [
     {
       name: "Dog",
-      url: "https://random.dog/woof.json",
-      extract: d => d.url,
-      valid: url => /\.(jpg|jpeg|png|gif)$/i.test(url)
+      url: "https://dog.ceo/api/breeds/image/random", // stable API
+      extract: d => d.message,
+      valid: () => true
     },
     {
       name: "Cat",
@@ -37,30 +37,35 @@ document.addEventListener("DOMContentLoaded", () => {
   ];
 
   async function fetchRandomAnimal() {
-    let api, url;
+    const api = currentFilter
+      ? animalAPIs.find(a => a.name === currentFilter)
+      : animalAPIs[Math.floor(Math.random() * animalAPIs.length)];
 
-    do {
-      api = currentFilter
-        ? animalAPIs.find(a => a.name === currentFilter)
-        : animalAPIs[Math.floor(Math.random() * animalAPIs.length)];
-
+    try {
       const res = await fetch(api.url);
       const data = await res.json();
-      url = api.extract(data);
-    } while (!api.valid(url));
+      const url = api.extract(data);
 
-    if (currentIndex < history.length - 1) {
-      history = history.slice(0, currentIndex + 1);
+      if (currentIndex < history.length - 1) history = history.slice(0, currentIndex + 1);
+
+      history.push({ url, name: api.name, likes: 0 });
+      currentIndex++;
+      showAnimal(currentIndex);
+    } catch (err) {
+      console.error("Failed to fetch animal:", err);
     }
-
-    history.push({ url, name: api.name, likes: 0 });
-    currentIndex++;
-    showAnimal(currentIndex);
   }
 
   function showAnimal(index) {
     const item = history[index];
+
+    img.classList.remove("show");
     img.src = item.url;
+
+    img.onload = () => {
+      img.classList.add("show");
+    };
+
     typeLabel.textContent = item.name;
     prevButton.disabled = index === 0;
     updateLikes();
@@ -68,7 +73,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function updateLikes() {
     likeCountLabel.textContent = history[currentIndex]?.likes || 0;
-    const total = history.reduce((s, i) => s + i.likes, 0);
+    const total = history.reduce((sum, i) => sum + i.likes, 0);
     totalLikesLabel.textContent = `Total Paw Power: ${total} 🐾`;
   }
 
