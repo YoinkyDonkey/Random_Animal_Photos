@@ -6,9 +6,6 @@
   <title>Random Animal Photos 🐾</title>
   <link rel="icon" href="8817973.png">
   <link rel="stylesheet" href="style.css">
-
-  <!-- defer ensures script runs after DOM is ready -->
-  <script src="script.js" defer></script>
 </head>
 <body>
 
@@ -24,8 +21,7 @@
 
     <div id="totalLikes">Total Paw Power: 0 🐾</div>
     <div id="animalType">Loading...</div>
-    <img id="animalImage" alt="Random Animal">
-
+    <img id="animalImage" src="" alt="Random Animal">
   </div>
 
   <div class="buttons">
@@ -35,8 +31,11 @@
   </div>
 
   <div id="lightboxOverlay">
-    <img alt="Animal Fullscreen">
+    <img src="" alt="Animal Fullscreen">
   </div>
 
+  <img id="surprisePopup" src="" alt="Surprise!">
+
+  <script src="script.js"></script>
 </body>
 </html>
