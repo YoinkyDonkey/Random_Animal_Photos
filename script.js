@@ -113,5 +113,5 @@ document.addEventListener("DOMContentLoaded", () => {
   showRandomBtn.onclick = fetchRandomAnimal;
 
   fetchRandomAnimal();
-});
 
+});
