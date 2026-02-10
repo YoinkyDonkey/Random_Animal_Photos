@@ -48,7 +48,6 @@ h1 {
   opacity: 0;
   cursor: zoom-in;
   transition: transform 0.4s, box-shadow 0.4s, opacity 0.5s;
-  display: block;
 }
 
 #animalImage.show {
@@ -157,4 +156,3 @@ button.active {
   display: none;
   border-radius: 20px;
 }
-
