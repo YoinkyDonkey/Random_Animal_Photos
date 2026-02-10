@@ -156,3 +156,21 @@ button.active {
   display: none;
   border-radius: 20px;
 }
+
+#footer {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #fff;
+  margin-top: 40px;
+  padding: 10px 0;
+  background: rgba(0,0,0,0.3);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  backdrop-filter: blur(5px);
+}
+body.dark #footer {
+  background: rgba(0,0,0,0.6);
+  color: #f0f0f0;
+}
