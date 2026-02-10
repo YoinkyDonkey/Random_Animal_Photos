@@ -4,18 +4,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Random Animal Photos 🐾</title>
-
   <link rel="icon" href="8817973.png">
   <link rel="stylesheet" href="style.css">
 
-  <!-- IMPORTANT: defer makes it work on GitHub Pages -->
+  <!-- Use defer to ensure script loads after the DOM -->
   <script src="script.js" defer></script>
 </head>
 <body>
 
   <div id="container">
     <h1>Random Animal Photos 🐾</h1>
-
     <div class="filter-buttons">
       <button id="showDog">Dog</button>
       <button id="showCat">Cat</button>
@@ -25,8 +23,8 @@
 
     <div id="totalLikes">Total Paw Power: 0 🐾</div>
     <div id="animalType">Loading...</div>
+    <img id="animalImage" alt="Random Animal">
 
-    <img id="animalImage" alt="Random Animal" />
   </div>
 
   <div class="buttons">
@@ -41,4 +39,3 @@
 
 </body>
 </html>
-
