@@ -159,7 +159,7 @@ button.active {
 
 #footer {
   text-align: center;
-  font-size: 0.9rem;
+  font-size: 0.5rem;
   color: #fff;
   margin-top: 40px;
   padding: 10px 0;
@@ -174,3 +174,4 @@ body.dark #footer {
   background: rgba(0,0,0,0.6);
   color: #f0f0f0;
 }
+
