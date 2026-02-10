@@ -1,0 +1,158 @@
+body {
+  font-family: 'Comic Sans MS', 'Segoe UI', Arial, sans-serif;
+  margin: 0;
+  padding-bottom: 80px;
+  overflow-x: hidden;
+  transition: background 0.5s, color 0.5s;
+  background: linear-gradient(to bottom right, #89c4c0, #cc2f61);
+  color: #333;
+}
+
+body.dark {
+  background: linear-gradient(to bottom right, #702b2b, #3c3c3c);
+  color: #f0f0f0;
+}
+
+#container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+h1 {
+  font-size: 2.4rem;
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+#totalLikes {
+  font-size: 1.2rem;
+  color: #ff4757;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+#animalType {
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+#animalImage {
+  max-width: 90%;
+  max-height: 60vh;
+  border-radius: 25px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  margin-bottom: 25px;
+  opacity: 0;
+  cursor: zoom-in;
+  transition: transform 0.4s, box-shadow 0.4s, opacity 0.5s;
+}
+
+#animalImage.show {
+  opacity: 1;
+}
+
+#animalImage:hover {
+  transform: scale(1.03);
+}
+
+.buttons {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  background: rgba(255,255,255,0.2);
+  padding: 10px 20px;
+  border-radius: 20px;
+  backdrop-filter: blur(5px);
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 12px;
+  background: #ff6f61;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+button.active {
+  background: #ff856f;
+}
+
+#likePhoto {
+  background: #ff4757;
+}
+
+#darkModeBtn {
+  background: #555;
+}
+
+.filter-buttons {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.paw, .heart {
+  position: fixed;
+  font-size: 24px;
+  pointer-events: none;
+  opacity: 0;
+  animation: pawFadeScroll 1.5s forwards;
+}
+
+.heart {
+  font-size: 28px;
+  color: #ff4757;
+  animation: heartFloatScroll 1.5s forwards;
+}
+
+@keyframes pawFadeScroll {
+  0% { opacity:0; transform: translateY(0) scale(0.5); }
+  50% { opacity:1; transform: translateY(-40px) scale(1.2); }
+  100% { opacity:0; transform: translateY(-80px) scale(0.8); }
+}
+
+@keyframes heartFloatScroll {
+  0% { opacity:1; }
+  100% { opacity:0; transform: translateY(-100px) scale(1.5); }
+}
+
+#lightboxOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+#lightboxOverlay img {
+  max-width: 95%;
+  max-height: 95%;
+  border-radius: 15px;
+}
+
+#surprisePopup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  display: none;
+  border-radius: 20px;
+}

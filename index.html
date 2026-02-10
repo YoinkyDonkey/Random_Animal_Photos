@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Random Animal Photos 🐾</title>
+  <link rel="icon" href="8817973.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div id="container">
+    <h1>Random Animal Photos 🐾</h1>
+
+    <div class="filter-buttons">
+      <button id="showDog">Dog</button>
+      <button id="showCat">Cat</button>
+      <button id="showRandom">Surprise Me!</button>
+      <button id="darkModeBtn">🌙 Dark Mode</button>
+    </div>
+
+    <div id="totalLikes">Total Paw Power: 0 🐾</div>
+    <div id="animalType">Loading...</div>
+    <img id="animalImage" src="" alt="Random Animal">
+  </div>
+
+  <div class="buttons">
+    <button id="prevPhoto" disabled>Previous</button>
+    <button id="nextPhoto">Next</button>
+    <button id="likePhoto">❤️ Like (<span id="likeCount">0</span>)</button>
+  </div>
+
+  <div id="lightboxOverlay">
+    <img src="" alt="Animal Fullscreen">
+  </div>
+
+  <img id="surprisePopup" src="" alt="Surprise!">
+
+  <script src="script.js"></script>
+</body>
+</html>
