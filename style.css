@@ -157,9 +157,10 @@ button.active {
   border-radius: 20px;
 }
 
+/* Footer default style (already in your CSS) */
 #footer {
   text-align: center;
-  font-size: 0.5rem;
+  font-size: 0.5rem; /* current size */
   color: #fff;
   margin-top: 40px;
   padding: 10px 0;
@@ -170,8 +171,17 @@ button.active {
   width: 100%;
   backdrop-filter: blur(5px);
 }
+
+/* Smaller footer for phones */
+@media only screen and (max-width: 480px) {
+  #footer {
+    font-size: 0.35rem; /* smaller on phones */
+    padding: 5px 0;     /* optional: reduce padding too */
+  }
+}
 body.dark #footer {
   background: rgba(0,0,0,0.6);
   color: #f0f0f0;
 }
+
 
