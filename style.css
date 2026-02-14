@@ -1,3 +1,4 @@
+/* General Styles */
 body {
   font-family: 'Comic Sans MS', 'Segoe UI', Arial, sans-serif;
   margin: 0;
@@ -22,53 +23,17 @@ body.dark {
 
 h1 {
   font-size: 2.4rem;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
   text-align: center;
 }
 
-#totalLikes {
-  font-size: 1.2rem;
-  color: #ff4757;
-  font-weight: bold;
-  margin-bottom: 20px;
-}
-
-#animalType {
-  font-size: 1.3rem;
-  font-weight: bold;
-  margin-bottom: 5px;
-}
-
-#animalImage {
-  max-width: 90%;
-  max-height: 60vh;
-  border-radius: 25px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-  margin-bottom: 25px;
-  opacity: 0;
-  cursor: zoom-in;
-  transition: transform 0.4s, box-shadow 0.4s, opacity 0.5s;
-}
-
-#animalImage.show {
-  opacity: 1;
-}
-
-#animalImage:hover {
-  transform: scale(1.03);
-}
-
-.buttons {
-  position: fixed;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
+/* Filter Buttons */
+.filter-buttons {
   display: flex;
   gap: 10px;
-  background: rgba(255,255,255,0.2);
-  padding: 10px 20px;
-  border-radius: 20px;
-  backdrop-filter: blur(5px);
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 button {
@@ -100,32 +65,62 @@ button.active {
   background: #555;
 }
 
-.filter-buttons {
+/* Likes Display */
+#totalLikes {
+  font-size: 1.2rem;
+  color: #ff4757;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+#animalType {
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+/* Animal Image */
+#animalImage {
+  max-width: 90%;
+  max-height: 60vh;
+  border-radius: 25px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  margin-bottom: 25px;
+  opacity: 0;
+  cursor: zoom-in;
+  transition: transform 0.4s, box-shadow 0.4s, opacity 0.5s;
+}
+
+#animalImage.show {
+  opacity: 1;
+}
+
+#animalImage:hover {
+  transform: scale(1.03);
+}
+
+/* Buttons Container */
+.buttons {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
   gap: 10px;
-  margin-bottom: 20px;
-  flex-wrap: wrap;
-  justify-content: center;
+  background: rgba(255,255,255,0.2);
+  padding: 10px 20px;
+  border-radius: 20px;
+  backdrop-filter: blur(5px);
 }
 
-.paw, .heart {
-  position: fixed;
-  font-size: 24px;
-  pointer-events: none;
-  opacity: 0;
-  animation: pawFadeScroll 1.5s forwards;
-}
-
+/* Heart Animation */
 .heart {
+  position: fixed;
   font-size: 28px;
   color: #ff4757;
+  pointer-events: none;
+  opacity: 0;
   animation: heartFloatScroll 1.5s forwards;
-}
-
-@keyframes pawFadeScroll {
-  0% { opacity:0; transform: translateY(0) scale(0.5); }
-  50% { opacity:1; transform: translateY(-40px) scale(1.2); }
-  100% { opacity:0; transform: translateY(-80px) scale(0.8); }
 }
 
 @keyframes heartFloatScroll {
@@ -133,6 +128,7 @@ button.active {
   100% { opacity:0; transform: translateY(-100px) scale(1.5); }
 }
 
+/* Lightbox */
 #lightboxOverlay {
   position: fixed;
   inset: 0;
@@ -148,19 +144,52 @@ button.active {
   border-radius: 15px;
 }
 
+/* Surprise popup animation */
+@keyframes surpriseBounceSpin {
+  0% { transform: translate(-50%, -50%) scale(0) rotate(0deg); opacity:0; }
+  40% { transform: translate(-50%, -50%) scale(1.3) rotate(180deg); opacity:1; }
+  70% { transform: translate(-50%, -50%) scale(0.9) rotate(270deg); opacity:1; }
+  100% { transform: translate(-50%, -50%) scale(1) rotate(360deg); opacity:0; }
+}
+
 #surprisePopup {
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) scale(0);
-  display: none;
   border-radius: 20px;
+  max-width: 60vw;
+  max-height: 60vh;
+  z-index: 1000;
+  pointer-events: none;
 }
 
-/* Footer default style (already in your CSS) */
+/* Slow awkward background surprise */
+@keyframes surpriseSlideAwkward {
+  0% { transform: translate(-50%, -50%) rotate(0deg) scale(0.5); opacity:0; }
+  25% { opacity: 0.3; }
+  50% { transform: translate(-55%, -50%) rotate(-10deg) scale(0.7); opacity: 0.5; }
+  75% { transform: translate(-45%, -50%) rotate(10deg) scale(0.7); opacity: 0.5; }
+  100% { transform: translate(-50%, -50%) rotate(0deg) scale(0.5); opacity: 0; }
+}
+
+#surpriseShadow {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.5);
+  border-radius: 20px;
+  max-width: 50vw;
+  max-height: 50vh;
+  z-index: 900;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Footer */
 #footer {
   text-align: center;
-  font-size: 0.5rem; /* current size */
+  font-size: 0.5rem;
   color: #fff;
   margin-top: 40px;
   padding: 10px 0;
@@ -172,16 +201,11 @@ button.active {
   backdrop-filter: blur(5px);
 }
 
-/* Smaller footer for phones */
-@media only screen and (max-width: 480px) {
-  #footer {
-    font-size: 0.35rem; /* smaller on phones */
-    padding: 5px 0;     /* optional: reduce padding too */
-  }
-}
 body.dark #footer {
   background: rgba(0,0,0,0.6);
   color: #f0f0f0;
 }
 
-
+@media only screen and (max-width: 480px) {
+  #footer { font-size: 0.5rem; padding: 5px 0; }
+}
